@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  pcautobackup:
+    container_name: pc-autobackup
+    image: maxill1/pc-autobackup
+    #ports:
+      #seems like there are more ports to expose
+      #- 1900:1900
+      #- 52235:52235
+    network_mode: host
+    volumes:
+      - /path/to/config:/config
+      - /path/to/sdcard:/sdcard
+      - /path/to/backup:/backup

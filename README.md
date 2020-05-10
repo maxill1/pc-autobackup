@@ -39,6 +39,7 @@ If you'd like to donate to the development of PC AutoBackup use the following li
   * ST200F
   * NX2000
   * NX300
+  * NX3000
   * Does it work with your camera? Send me a pull request editing this README.
 
 ## **Tested on the following OS:** ##
@@ -56,6 +57,36 @@ If you'd like to donate to the development of PC AutoBackup use the following li
   * Python 2.7.12
 
 ---
+
+## docker image ##
+
+docker image is avalable at maxill1/pc-autobackup and with a docker-compose file:
+
+```
+version: '2'
+
+services:
+  pcautobackup:
+    container_name: pc-autobackup
+    image: maxill1/pc-autobackup
+    network_mode: host
+    volumes:
+      - /opt/temp/autobackup/config:/config
+      - /opt/temp/autobackup/sdcard:/sdcard 
+      - /opt/temp/autobackup/backup:/backup
+```
+
+run with:
+
+```
+docker-compose -f docker-compose.yml up -d
+```
+
+create sdcard config:
+```
+docker run -it pc-autobackup --create_camera_config=/sdcard
+```
+
 
 **_This software is NOT created or supported by Samsung_**
 
