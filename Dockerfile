@@ -1,4 +1,4 @@
-FROM python:2.7.12
+FROM python:2
 
 WORKDIR /usr/src/app
 
@@ -14,7 +14,7 @@ COPY . .
 #seems like there are more ports to expose
 #EXPOSE 1900
 #EXPOSE 52235
-ENTRYPOINT [ "python", "/usr/src/app/pc_autobackup.py", "--config_file=/config/pc_autobackup.cfg", "--log_file=/config/autobackup.log", "--output_dir=/backup" ]
+ENTRYPOINT [ "python", "./pc_autobackup.py", "--config_file=/config/pc_autobackup.cfg", "--log_file=/config/autobackup.log", "--output_dir=/backup" ]
 CMD [ ]
 
 
